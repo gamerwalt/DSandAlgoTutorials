@@ -9,7 +9,7 @@ namespace DataStructuresTutorials
         private Node First;
         private Node Last;
 
-        public void addFirst(int value)
+        public void AddFirst(int value)
         {
             var node = new Node(value);
 
@@ -24,7 +24,7 @@ namespace DataStructuresTutorials
             First = node;
         }
 
-        public void addLast(int value)
+        public void AddLast(int value)
         {
             var node = new Node(value);
 
@@ -71,7 +71,7 @@ namespace DataStructuresTutorials
             return sb.ToString();
         }
 
-        public void deleteFirst()
+        public void DeleteFirst()
         {
             if(First == null)
             {
@@ -79,6 +79,54 @@ namespace DataStructuresTutorials
             }
 
             First = First.Next;
+        }
+
+        public void DeleteLast()
+        {
+            if(Last == null || First == null)
+            {
+                return;
+            }
+
+            var previousNode = First;
+            var currentNode = First.Next;
+
+            while(currentNode != null)
+            {
+                if(currentNode != Last)
+                {
+                    previousNode = currentNode;
+                }
+
+                currentNode = currentNode.Next;
+            }
+
+            Last = previousNode;
+            previousNode.Next = null;            
+        }
+
+        public bool Contains(int value)
+        {
+            return IndexOf(value) != -1;
+        }
+
+        public int IndexOf(int value)
+        {
+            var index = 0;
+            var currentNode = First;
+
+            while (currentNode != null)
+            {
+                if (currentNode.Value == value)
+                {
+                    return index;
+                }
+
+                currentNode = currentNode.Next;
+                index++;
+            }
+
+            return -1;
         }
 
         private class Node
