@@ -8,6 +8,7 @@ namespace DataStructuresTutorials
     {
         private Node First;
         private Node Last;
+        private int Size;
 
         public void AddFirst(int value)
         {
@@ -17,11 +18,13 @@ namespace DataStructuresTutorials
             {
                 First = node;
                 Last = First;
+                Size++;
                 return;
             }
 
             node.Next = First;
             First = node;
+            Size++;
         }
 
         public void AddLast(int value)
@@ -32,6 +35,7 @@ namespace DataStructuresTutorials
             {
                 First = node;
                 Last = First;
+                Size++;
                 return;
             }
 
@@ -39,12 +43,13 @@ namespace DataStructuresTutorials
             {
                 Last = node;
                 First.Next = Last;
+                Size++;
                 return;
             }
 
             Last.Next = node;
             Last = node;
-
+            Size++;
         }
 
         public string Print()
@@ -78,7 +83,56 @@ namespace DataStructuresTutorials
                 return;
             }
 
-            First = First.Next;
+            if(First == Last)
+            {
+                First = Last = null;
+                Size--;
+                return;
+            }
+
+            var next = First.Next;
+            First.Next = null;
+            First = next;
+            Size--;
+        }
+
+        public int[] ToArray()
+        {
+            int[] array = new int[Size];
+            var current = First;
+            var counter = 0;
+
+            while(current != null)
+            {
+                array[counter++] = current.Value;
+                current = current.Next;
+            }
+
+            return array;
+        }
+
+        public void Reverse()
+        {
+            if(First == null)
+            {
+                return;
+            }
+
+            var current = First.Next;
+            var previous = First;
+
+            while(current != null)
+            {
+                var temp = current.Next;
+
+                current.Next = previous;
+                previous = current;
+                current = temp;
+            }
+            
+            First.Next = null;
+            Last = First;
+            First = previous;
         }
 
         public void DeleteLast()
@@ -88,21 +142,30 @@ namespace DataStructuresTutorials
                 return;
             }
 
-            var previousNode = First;
-            var currentNode = First.Next;
-
-            while(currentNode != null)
+            if(First == Last)
             {
-                if(currentNode != Last)
-                {
-                    previousNode = currentNode;
-                }
-
-                currentNode = currentNode.Next;
+                First = Last = null;
+                Size--;
+                return;
             }
 
+            var previousNode = GetPrevious(Last);
+
             Last = previousNode;
-            previousNode.Next = null;            
+            Last.Next = null;
+            Size--;
+        }
+
+        private Node GetPrevious(Node node)
+        {
+            var current = First;
+            while(current != null)
+            {
+                if (current.Next == node) return current;
+                current = current.Next;
+            }
+
+            return null;
         }
 
         public bool Contains(int value)
@@ -127,6 +190,11 @@ namespace DataStructuresTutorials
             }
 
             return -1;
+        }
+
+        public int GetSize()
+        {
+            return Size;
         }
 
         private class Node

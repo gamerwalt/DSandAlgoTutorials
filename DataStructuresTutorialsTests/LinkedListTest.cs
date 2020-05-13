@@ -211,5 +211,62 @@ namespace DataStructuresTutorialsTests
             var indexOf = l.IndexOf(10);
             indexOf.Should().Be(-1);
         }
+
+        [TestMethod]
+        public void should_be_able_to_return_an_array()
+        {
+            var l = new LinkedList();
+            l.AddFirst(10);
+            l.AddFirst(5);
+            l.AddLast(15);
+            l.AddLast(20);
+
+            var ar = l.ToArray();
+            ar[0].Should().Be(5);
+            ar[1].Should().Be(10);
+            ar[3].Should().Be(20);
+        }
+
+        [TestMethod]
+        public void should_be_able_to_reverse_a_linked_list()
+        {
+            var l = new LinkedList();
+            l.AddFirst(10);
+            l.AddFirst(5);
+            l.AddLast(15);
+            l.AddLast(20);
+
+            l.Print().Should().Be("5, 10, 15, 20");
+
+            l.Reverse();
+
+            l.Print().Should().Be("20, 15, 10, 5");
+        }
+
+        [TestMethod]
+        public void should_be_able_to_reverse_a_linked_list_2()
+        {
+            var l = new LinkedList();
+            l.AddFirst(10);
+            l.AddFirst(5);
+            l.AddLast(15);
+            l.AddLast(20);
+            l.AddLast(30);
+
+            l.Reverse();
+
+            l.Print().Should().Be("30, 20, 15, 10, 5");
+        }
+
+        [TestMethod]
+        public void should_be_able_to_reverse_a_linked_list_3()
+        {
+            var l = new LinkedList();
+            l.AddFirst(10);
+
+            l.Reverse();
+
+            l.Print().Should().Be("10");
+        }
     }
 }
