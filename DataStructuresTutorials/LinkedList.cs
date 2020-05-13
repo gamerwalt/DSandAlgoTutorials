@@ -156,6 +156,36 @@ namespace DataStructuresTutorials
             Size--;
         }
 
+        public int FindKthNodeFromEnd(int k)
+        {
+            if(First == null || k > Size || k < 0)
+            {
+                return -1;
+            }
+            
+            var differenceInPointers = k - 1;
+
+            var pointer1 = First;
+            var pointer2 = pointer1;
+            var counter = 0;
+
+            while(pointer2.Next != null)
+            {
+                if(counter >= differenceInPointers)
+                {
+                    pointer1 = pointer1.Next;
+                    pointer2 = pointer2.Next;
+                }
+                else
+                {
+                    counter++;
+                    pointer2 = pointer2.Next;
+                }
+            }
+
+            return pointer1.Value;
+        }
+
         private Node GetPrevious(Node node)
         {
             var current = First;

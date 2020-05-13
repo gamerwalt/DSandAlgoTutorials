@@ -268,5 +268,85 @@ namespace DataStructuresTutorialsTests
 
             l.Print().Should().Be("10");
         }
+
+        [TestMethod]
+        public void should_return_the_3rd_node_in_a_linked_list()
+        {
+            var l = new LinkedList();
+            l.AddFirst(10);
+            l.AddFirst(5);
+            l.AddLast(15);
+            l.AddLast(20);
+            l.AddLast(30);
+            //5,10,15,20,30
+
+            l.FindKthNodeFromEnd(3).Should().Be(15);
+        }
+
+        [TestMethod]
+        public void should_return_the_4th_node_in_a_linked_list()
+        {
+            var l = new LinkedList();
+            l.AddFirst(10);
+            l.AddFirst(5);
+            l.AddLast(15);
+            l.AddLast(20);
+            l.AddLast(30);
+            //5,10,15,20,30
+
+            l.FindKthNodeFromEnd(4).Should().Be(10);
+        }
+
+        [TestMethod]
+        public void should_return_negative_1_if_out_of_bounds()
+        {
+            var l = new LinkedList();
+            l.AddFirst(10);
+            l.AddFirst(5);
+            l.AddLast(15);
+            l.AddLast(20);
+            l.AddLast(30);
+            //5,10,15,20,30
+
+            l.FindKthNodeFromEnd(100).Should().Be(-1);
+        }
+
+        [TestMethod]
+        public void should_return_negative_1_if_empty()
+        {
+            var l = new LinkedList();
+
+            l.FindKthNodeFromEnd(100).Should().Be(-1);
+        }
+
+        [TestMethod]
+        public void should_return_negative_1_if_k_is_0()
+        {
+            var l = new LinkedList();
+
+            l.FindKthNodeFromEnd(0).Should().Be(-1);
+        }
+
+        [TestMethod]
+        public void should_return_negative_1_if_k_is_a_negative_number()
+        {
+            var l = new LinkedList();
+
+            l.FindKthNodeFromEnd(-5).Should().Be(-1);
+        }
+
+        [TestMethod]
+        public void should_return_30_if_we_supply_0()
+        {
+            var l = new LinkedList();
+            l.AddFirst(10);
+            l.AddFirst(5);
+            l.AddLast(15);
+            l.AddLast(20);
+            l.AddLast(30);
+            //5,10,15,20,30
+
+            l.FindKthNodeFromEnd(0).Should().Be(30);
+        }
     }
 }
