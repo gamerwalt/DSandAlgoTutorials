@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
 
 namespace DataStructuresTutorials
 {
@@ -7,7 +10,16 @@ namespace DataStructuresTutorials
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(isPalindromeNumber(13455431));
+            var queue = new Queue<int>();
+            queue.Enqueue(10);
+            queue.Enqueue(20);
+            queue.Enqueue(30);
+            foreach(var item in queue)
+            {
+                Console.Write(item);
+            }
+            
+            reverseQueue(queue);
         }
 
         public static bool isPalindromeNumber(int x)
@@ -34,6 +46,29 @@ namespace DataStructuresTutorials
             }
 
             return x < 0 ? -result : result;
+        }
+
+        public static void reverseQueue(Queue<int> queue)
+        {
+            Console.WriteLine("");
+            Console.WriteLine("reversing queue");
+            //the idea here I believe is to use a stack to remove the items from the queue then 
+            //use the same stack to populate the queue
+            var stack = new Stack<int>();
+            while(queue.Count > 0)
+            {
+                stack.Push(queue.Dequeue());
+            }
+
+            while(stack.Count > 0)
+            {
+                queue.Enqueue(stack.Pop());
+            }
+
+            foreach (var item in queue)
+            {
+                Console.Write(item);
+            }
         }
     }
 }
