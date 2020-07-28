@@ -7,4 +7,8 @@
     <AssemblyName>DataStructuresTutorials</AssemblyName>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Program.cs~RF802ff3c.TMP" />
+  </ItemGroup>
+
 </Project>

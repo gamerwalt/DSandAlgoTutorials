@@ -48,7 +48,7 @@ namespace DataStructuresTutorialsTests
         public void should_return_false_if_the_string_is_not_balanced_because_of_a_bracket_that_wasnt_closed()
         {
             var balancer = new StringProblems();
-            var stringToCheck = "<[<<>>([))]"; //needs the end to be a >
+            var stringToCheck = "{[}]"; 
             balancer.isBalancedParenthesis(stringToCheck).Should().BeFalse();
         }
 

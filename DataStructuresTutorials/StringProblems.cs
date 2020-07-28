@@ -28,6 +28,8 @@ namespace DataStructuresTutorials
             return newString.ToString();
         }
 
+
+
         public bool isBalancedParenthesis(string stringToCheck)
         {
             if(stringToCheck == null)
@@ -41,6 +43,9 @@ namespace DataStructuresTutorials
                 var charToCheck = stringToCheck[i];
                 switch(charToCheck)
                 {
+                    case '{':
+                        opposites.Push('}');
+                        break;
                     case '(':
                         opposites.Push(')');
                         break;
@@ -49,6 +54,13 @@ namespace DataStructuresTutorials
                         break;
                     case '<':
                         opposites.Push('>');
+                        break;
+                    case '}':
+                        if (opposites.Count == 0) return false;
+                        if (!opposites.Pop().Equals('}'))
+                        {
+                            return false;
+                        }
                         break;
                     case ')':
                         if (opposites.Count == 0) return false;
