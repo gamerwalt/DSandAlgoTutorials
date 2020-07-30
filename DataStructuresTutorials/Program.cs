@@ -10,21 +10,19 @@ namespace DataStructuresTutorials
     {
         static void Main(string[] args)
         {
-            var QA = new QueueArray(5);
-            QA.Enqueue(10);
-            QA.Enqueue(20);
-            QA.Enqueue(30);
-            QA.Enqueue(40);
+            var s = new QueueWithStack();
+            s.Enqueue(10);
+            s.Enqueue(20);
+            s.Enqueue(30);
 
-            Console.WriteLine(QA.Dequeue());
-            QA.Enqueue(50);
-            Console.WriteLine(QA.Peek());
-            Console.WriteLine(QA.IsFull());
-            Console.WriteLine(QA.Dequeue());
-            QA.Enqueue(60);
-            Console.WriteLine(QA.Dequeue());
-            QA.Enqueue(70);
-            QA.Enqueue(80);
+            Console.WriteLine(s.Dequeue());
+            Console.WriteLine(s.Dequeue());
+            s.Enqueue(40);
+            s.Enqueue(50);
+
+            Console.WriteLine(s.Dequeue());
+
+            Console.WriteLine(s.PrintAll());
         }
 
         public static bool isPalindromeNumber(int x)
