@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="PriorityQueue.cs~RF32d47bcd.TMP" />
     <None Remove="Program.cs~RF802ff3c.TMP" />
   </ItemGroup>
 

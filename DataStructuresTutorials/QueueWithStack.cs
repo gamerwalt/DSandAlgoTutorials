@@ -49,7 +49,7 @@ namespace DataStructuresTutorials
                 count--;
                 if(count != 0)
                 {
-                    sb.Append(',');
+                    sb.Append(", ");
                 }
             }
 
