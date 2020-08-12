@@ -10,19 +10,26 @@ namespace DataStructuresTutorials
     {
         static void Main(string[] args)
         {
-            var s = new QueueWithStack();
-            s.Enqueue(10);
-            s.Enqueue(20);
-            s.Enqueue(30);
+            var input = 0;
+            Console.WriteLine("Reversing numbers*****************");
+            var reverser = new EasyProblems.ReverseInteger();
+            Console.WriteLine(reverser.ReverseInt(-123));
+            Console.WriteLine(reverser.ReverseInt(123));
+            Console.WriteLine("************************************");
+            Console.WriteLine("************************************");
 
-            Console.WriteLine(s.Dequeue());
-            Console.WriteLine(s.Dequeue());
-            s.Enqueue(40);
-            s.Enqueue(50);
+            input = 121;
+            var palindrome = new EasyProblems.PalindromeNumber();
+            var isPalindrome = palindrome.isPalindrome(121);
+            Console.WriteLine("Is " + input + " a palindrome? " + isPalindrome.ToString());
 
-            Console.WriteLine(s.Dequeue());
+            input = -121;
+            isPalindrome = palindrome.isPalindrome(-121);
+            Console.WriteLine("Is " + input + " a palindrome? " + isPalindrome.ToString());
 
-            Console.WriteLine(s.PrintAll());
+            input = 10;
+            isPalindrome = palindrome.isPalindrome(10);
+            Console.WriteLine("Is " + input + " a palindrome? " + isPalindrome.ToString());
         }
 
         public static bool isPalindromeNumber(int x)
