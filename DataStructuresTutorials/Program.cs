@@ -17,6 +17,7 @@ namespace DataStructuresTutorials
 
             var validator = new ValidateArraySubsequence();
             Console.WriteLine(validator.isValideSubsequence(firstArray.ToList(), secondArray.ToList()));
+            Console.WriteLine(validator.isSubSequence(firstArray.ToList(), secondArray.ToList()));
 
             //var input = 0;
             //Console.WriteLine("Reversing numbers*****************");

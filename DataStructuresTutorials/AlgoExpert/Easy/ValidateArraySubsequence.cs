@@ -6,6 +6,23 @@ namespace DataStructuresTutorials.AlgoExpert.Easy
 {
     public class ValidateArraySubsequence
     {
+        public bool isSubSequence(List<int> array, List<int> sequence)
+        {
+            int arrayIndex = 0;
+            int sequenceIndex = 0;
+            while(arrayIndex < array.Count && sequenceIndex < sequence.Count)
+            {
+                if(array[arrayIndex] == sequence[sequenceIndex])
+                {
+                    sequenceIndex++;
+                }
+
+                arrayIndex++;
+            }
+
+            return sequenceIndex == sequence.Count;
+        }
+
         public bool isValideSubsequence(List<int> array, List<int> sequence)
         {
             if(array.Count == 0 || sequence.Count == 0)
