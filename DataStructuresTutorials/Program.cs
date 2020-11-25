@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataStructuresTutorials.AlgoExpert.Easy;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,26 +11,33 @@ namespace DataStructuresTutorials
     {
         static void Main(string[] args)
         {
-            var input = 0;
-            Console.WriteLine("Reversing numbers*****************");
-            var reverser = new EasyProblems.ReverseInteger();
-            Console.WriteLine(reverser.ReverseInt(-123));
-            Console.WriteLine(reverser.ReverseInt(123));
-            Console.WriteLine("************************************");
-            Console.WriteLine("************************************");
 
-            input = 121;
-            var palindrome = new EasyProblems.PalindromeNumber();
-            var isPalindrome = palindrome.isPalindrome(121);
-            Console.WriteLine("Is " + input + " a palindrome? " + isPalindrome.ToString());
+            int[] firstArray = { 1, 1, 1, 1, 1 };
+            int[] secondArray = { 1, 1, 1 };
 
-            input = -121;
-            isPalindrome = palindrome.isPalindrome(-121);
-            Console.WriteLine("Is " + input + " a palindrome? " + isPalindrome.ToString());
+            var validator = new ValidateArraySubsequence();
+            Console.WriteLine(validator.isValideSubsequence(firstArray.ToList(), secondArray.ToList()));
 
-            input = 10;
-            isPalindrome = palindrome.isPalindrome(10);
-            Console.WriteLine("Is " + input + " a palindrome? " + isPalindrome.ToString());
+            //var input = 0;
+            //Console.WriteLine("Reversing numbers*****************");
+            //var reverser = new EasyProblems.ReverseInteger();
+            //Console.WriteLine(reverser.ReverseInt(-123));
+            //Console.WriteLine(reverser.ReverseInt(123));
+            //Console.WriteLine("************************************");
+            //Console.WriteLine("************************************");
+
+            //input = 121;
+            //var palindrome = new EasyProblems.PalindromeNumber();
+            //var isPalindrome = palindrome.isPalindrome(121);
+            //Console.WriteLine("Is " + input + " a palindrome? " + isPalindrome.ToString());
+
+            //input = -121;
+            //isPalindrome = palindrome.isPalindrome(-121);
+            //Console.WriteLine("Is " + input + " a palindrome? " + isPalindrome.ToString());
+
+            //input = 10;
+            //isPalindrome = palindrome.isPalindrome(10);
+            //Console.WriteLine("Is " + input + " a palindrome? " + isPalindrome.ToString());
         }
 
         public static bool isPalindromeNumber(int x)
