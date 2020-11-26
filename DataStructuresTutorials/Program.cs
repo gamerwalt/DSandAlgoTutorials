@@ -11,13 +11,36 @@ namespace DataStructuresTutorials
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("*********************************************************");
+            Console.WriteLine("*********************************************************");
+            Console.WriteLine("************* TWO NUMBER SUM ********************");
+            Console.WriteLine("*********************************************************");
+            Console.WriteLine("*********************************************************");
+            Console.WriteLine("");
+            /** TwoNumberSum */
+            int[] array = { -21, 301, 12, 4, 65, 56, 210, 356, 9, -47 };
+            int targetSum = 164;
+            var checker = TwoNumberSumClass.TwoNumberSum(array, targetSum);
+            for (int i = 0; i < checker.Length; i++)
+            {
+                Console.WriteLine(checker[i]);
+            }
 
+            Console.WriteLine("");
+            Console.WriteLine("*********************************************************");
+            Console.WriteLine("*********************************************************");
+            Console.WriteLine("*************SUBSEQUENCE OF AN ARRAY ********************");
+            Console.WriteLine("*********************************************************");
+            Console.WriteLine("*********************************************************");
+
+            /***Subsequence***/
             int[] firstArray = { 1, 1, 1, 1, 1 };
             int[] secondArray = { 1, 1, 1 };
 
             var validator = new ValidateArraySubsequence();
             Console.WriteLine(validator.isValideSubsequence(firstArray.ToList(), secondArray.ToList()));
             Console.WriteLine(validator.isSubSequence(firstArray.ToList(), secondArray.ToList()));
+            /**End of subsequence**/
 
             //var input = 0;
             //Console.WriteLine("Reversing numbers*****************");
