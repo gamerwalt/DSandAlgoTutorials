@@ -1,4 +1,5 @@
-﻿using DataStructuresTutorials.AlgoExpert.Easy;
+﻿using DataStructuresTutorials.AlgoExpert;
+using DataStructuresTutorials.AlgoExpert.Easy;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -11,6 +12,28 @@ namespace DataStructuresTutorials
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("*********************************************************");
+            Console.WriteLine("*********************************************************");
+            Console.WriteLine("************* FIND CLOSEST VALUE IN BST *****************");
+            Console.WriteLine("*********************************************************");
+            Console.WriteLine("*********************************************************");
+            Console.WriteLine("");
+            var root = new BST(10);
+            root.left = new BST(5);
+            root.left.left = new BST(2);
+            root.left.left.left = new BST(1);
+            root.left.right = new BST(5);
+            root.right = new BST(15);
+            root.right.left = new BST(13);
+            root.right.left.right = new BST(14);
+            root.right.right = new BST(22);
+
+            var expected = 13;
+            var found = root.FindClosestValueInBst(root, 12);
+            Console.WriteLine($"Expected output: {expected}");
+            Console.WriteLine($"Found ouput: {found}");
+
+
             Console.WriteLine("*********************************************************");
             Console.WriteLine("*********************************************************");
             Console.WriteLine("************* TWO NUMBER SUM ********************");
