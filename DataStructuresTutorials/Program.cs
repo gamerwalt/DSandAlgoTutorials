@@ -12,24 +12,77 @@ namespace DataStructuresTutorials
     {
         static void Main(string[] args)
         {
+
+            Console.WriteLine("*********************************************************");
+            Console.WriteLine("*********************************************************");
+            Console.WriteLine("************* BRANCH SUMS *******************************");
+            Console.WriteLine("*********************************************************");
+            Console.WriteLine("*********************************************************");
+            Console.WriteLine("");
+            var tree = new BST(1);
+            tree.left = new BST(2);
+            tree.left.left = new BST(4);
+            tree.left.left.left = new BST(8);
+            tree.left.left.right = new BST(9);
+            tree.left.right = new BST(5);
+            tree.left.right.left = new BST(10);
+            tree.right = new BST(3);
+            tree.right.left = new BST(6);
+            tree.right.right = new BST(7);
+            var brResult = BranchSums.GetBranchSums(tree);
+
+            Console.WriteLine("*********************************************************");
+            Console.WriteLine("*********************************************************");
+            Console.WriteLine("************* GET NODE DEPTH *****************");
+            Console.WriteLine("*********************************************************");
+            Console.WriteLine("*********************************************************");
+            Console.WriteLine("");
+            var bstTree = new BST(1);
+            bstTree.left = new BST(2);
+            bstTree.left.left = new BST(4);
+            bstTree.left.left.left = new BST(8);
+            bstTree.left.right = new BST(5);
+            bstTree.left.left.right = new BST(9);
+            bstTree.right = new BST(3);
+            bstTree.right.left = new BST(6);
+            bstTree.right.right = new BST(7);
+            var result = NodeDepth.NodeDepths(bstTree);
+            Console.WriteLine($"Node depth is {result}");
+            var result2 = NodeDepth2.GetNodeDepth(bstTree);
+            Console.WriteLine($"Node depth 2 is {result2}");
+
+
+            Console.WriteLine("*********************************************************");
+            Console.WriteLine("*********************************************************");
+            Console.WriteLine("************* GET NODE DEPTH *****************");
+            Console.WriteLine("*********************************************************");
+            Console.WriteLine("*********************************************************");
+            Console.WriteLine("");
+            bstTree = new BST(1);
+            bstTree.left = new BST(2);
+            result = NodeDepth.NodeDepths(bstTree);
+            Console.WriteLine($"Node depth is {result}");
+            var getNodeDepth2 = NodeDepth2.GetNodeDepth(bstTree);
+            Console.WriteLine($"Node depth is {getNodeDepth2}");
+
             Console.WriteLine("*********************************************************");
             Console.WriteLine("*********************************************************");
             Console.WriteLine("************* FIND CLOSEST VALUE IN BST *****************");
             Console.WriteLine("*********************************************************");
             Console.WriteLine("*********************************************************");
             Console.WriteLine("");
-            var root = new BST(10);
-            root.left = new BST(5);
-            root.left.left = new BST(2);
-            root.left.left.left = new BST(1);
-            root.left.right = new BST(5);
-            root.right = new BST(15);
-            root.right.left = new BST(13);
-            root.right.left.right = new BST(14);
-            root.right.right = new BST(22);
+            bstTree = new BST(10);
+            bstTree.left = new BST(5);
+            bstTree.left.left = new BST(2);
+            bstTree.left.left.left = new BST(1);
+            bstTree.left.right = new BST(5);
+            bstTree.right = new BST(15);
+            bstTree.right.left = new BST(13);
+            bstTree.right.left.right = new BST(14);
+            bstTree.right.right = new BST(22);
 
             var expected = 13;
-            var found = root.FindClosestValueInBst(root, 12);
+            var found = bstTree.FindClosestValueInBst(bstTree, 12);
             Console.WriteLine($"Expected output: {expected}");
             Console.WriteLine($"Found ouput: {found}");
 
