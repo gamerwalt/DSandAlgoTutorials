@@ -25,7 +25,7 @@ namespace DataStructuresTutorials
             int i;
             for(i = count - 1; i>=0; i--)
             {
-                if(Items[i] > item)
+                if(Items[i] < item)
                     Items[i + 1] = Items[i];
                 else
                     break;
@@ -64,12 +64,20 @@ namespace DataStructuresTutorials
             if (isEmpty())
                 throw new Exception("Queue is empty.");
 
-            return Items[--count];
+            var itemToRemove = Items[count-1];
+            Items[count-1] = 0;
+            --count;
+            return itemToRemove;
         }
 
         public bool isEmpty()
         {
             return count == 0;
+        }
+
+        public int Count()
+        {
+            return count;
         }
     }
 }

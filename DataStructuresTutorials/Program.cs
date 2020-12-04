@@ -30,6 +30,10 @@ namespace DataStructuresTutorials
             tree.right.left = new BST(6);
             tree.right.right = new BST(7);
             var brResult = BranchSums.GetBranchSums(tree);
+            Console.WriteLine($"Branch sums result is {String.Join(",", brResult)}");
+            brResult = BranchSums2.GetBranchSums(tree);
+            Console.WriteLine($"Branch sums result is {String.Join(",", brResult)}");
+            return;
 
             Console.WriteLine("*********************************************************");
             Console.WriteLine("*********************************************************");
