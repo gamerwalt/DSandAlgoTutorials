@@ -135,6 +135,24 @@ namespace DataStructuresTutorials
             First = previous;
         }
 
+        public void Reverse2()
+        {
+            var current = First.Next;
+            var previous = First;
+
+            while(current != null)
+            {
+                var temp = current.Next;
+                current.Next = previous;
+                previous = current;
+                current = temp;
+            }
+
+            First.Next = null;
+            Last = First;
+            First = previous;
+        }
+
         public void DeleteLast()
         {
             if(Last == null || First == null)

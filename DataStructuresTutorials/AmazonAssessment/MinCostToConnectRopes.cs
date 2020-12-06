@@ -4,6 +4,7 @@ using System.Text;
 
 namespace DataStructuresTutorials.AmazonAssessment
 {
+    /**https://leetcode.com/problems/minimum-cost-to-connect-sticks**/
     public class MinCostToConnectRopes
     {
         public static int GetMinCostToConnectRopes(int[] ropes)
