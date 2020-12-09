@@ -1,5 +1,6 @@
 ﻿using DataStructuresTutorials.AlgoExpert;
 using DataStructuresTutorials.AlgoExpert.Easy;
+using DataStructuresTutorials.AVLTreesTutorials;
 using DataStructuresTutorials.BinaryTreesTutorials;
 using System;
 using System.Collections;
@@ -13,19 +14,16 @@ namespace DataStructuresTutorials
     {
         static void Main(string[] args)
         {
-            var tree = new BinaryTree();
-            tree.Insert(7);
-            tree.Insert(4);
-            tree.Insert(9);
-            tree.Insert(1);
-            tree.Insert(6);
-            tree.Insert(8);
-            tree.Insert(10);
-            tree.TraversePreorder();
-            Console.WriteLine("****************************************");
-            tree.TraverseInOrder();
-            Console.WriteLine("****************************************");
-            tree.TraversePostOrder();
+            int[] numbers = new int[3];
+
+            Action<int> action = new Action<int>(WriteToString);
+
+            Array.ForEach(numbers, action);
+        }
+
+        private static void WriteToString(int r)
+        {
+            Console.WriteLine($"{r}");
         }
     }
 }
