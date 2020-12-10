@@ -14,16 +14,14 @@ namespace DataStructuresTutorials
     {
         static void Main(string[] args)
         {
-            int[] numbers = new int[3];
-
-            Action<int> action = new Action<int>(WriteToString);
-
-            Array.ForEach(numbers, action);
-        }
-
-        private static void WriteToString(int r)
-        {
-            Console.WriteLine($"{r}");
+            var array = new Arrays.Array(3);
+            array.Insert(10);
+            array.Insert(20);
+            array.Insert(30);
+            array.Insert(40);
+            array.RemoveAt(4);
+            array.Print();
+            Console.WriteLine(array.IndexOf(100));
         }
     }
 }
