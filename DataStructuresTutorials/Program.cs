@@ -21,7 +21,7 @@ namespace DataStructuresTutorials
             array.Insert(40);
             array.RemoveAt(4);
             array.Print();
-            Console.WriteLine(array.IndexOf(100));
+            Console.WriteLine(array.IndexOf(10));
         }
     }
 }
