@@ -1,5 +1,6 @@
 ﻿using DataStructuresTutorials.AlgoExpert;
 using DataStructuresTutorials.AlgoExpert.Easy;
+using DataStructuresTutorials.Arrays;
 using DataStructuresTutorials.AVLTreesTutorials;
 using DataStructuresTutorials.BinaryTreesTutorials;
 using System;
@@ -14,14 +15,9 @@ namespace DataStructuresTutorials
     {
         static void Main(string[] args)
         {
-            var array = new Arrays.Array(3);
-            array.Insert(10);
-            array.Insert(20);
-            array.Insert(30);
-            array.Insert(40);
-            array.RemoveAt(4);
-            array.Print();
-            Console.WriteLine(array.IndexOf(10));
+            var nums = new int[] { 1, 2, 3 };
+
+            var result = LeetCodeArrayProblems.EasyPlusOne(nums);
         }
     }
 }
