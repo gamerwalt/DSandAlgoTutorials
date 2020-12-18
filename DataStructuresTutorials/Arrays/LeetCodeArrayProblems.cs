@@ -230,6 +230,44 @@ namespace DataStructuresTutorials.Arrays
                 results[resultIndex++] = right[rightIndex++];
         }
 
+        //Pascal Triangle V2
+        public static IList<int> EasyPascalTriangleGetRow(int rowIndex)
+        {
+            #region Findings
+            //Example
+            /*
+            NOTE:   1 will always be the first and last numbers
+                    If we give 3, we return an array or list of integers with 4 numbers.
+            Example 1: rowIndex = 1, return        [1, 1]           2 numbers (1 + 1)
+            Example 0: rowIndex = 2, return       [1, 2, 1]         3 numbers (2 + 1)
+            Example 1: rowIndex = 3, return      [1, 3, 3, 1]       4 numbers (3 + 1)
+            Example 2: rowIndex = 4, return    [1, 4, 6, 4, 1]      5 numbers (4 + 1)
+            Example 3: rowIndex = 5, return  [1, 5, 10, 10, 5, 1]   6 numbers (5 + 1) //We know we have to loop x number of times
+
+            First pattern:  if we give 3, we know that we will return 4 numbers with first and last = 1 and 2nd and 2nd to last equal to the actual row number
+                            however, what comes between?
+            Second Pattern: we add the first and last 1(s) and loop in the middle
+                            Loop number of times here for 
+                            if rowIndex = 1, loop zero times
+                            if rowIndex = 2, loop once,
+                            if rowIndex = 3, loop twice
+            */
+            #endregion
+
+            int[] row = new int[rowIndex + 1];
+            row[rowIndex] = 1;
+
+            
+            return row;
+        }
+
+        private static int GetResult(int counter)
+        {
+            if (counter <= 1) return 1;
+
+            return GetResult(counter -1) + GetResult(counter - 1);
+        }
+
         public static IList<IList<int>> EasyPascalTriangle(int numRows)
         {
             IList<IList<int>> listOfRows = new List<IList<int>>();
@@ -260,6 +298,45 @@ namespace DataStructuresTutorials.Arrays
         private static int GetSumOfPreviousIndices(IList<int> previousList, int j)
         {
             return previousList[j] + previousList[j - 1];
+        }
+
+        public static int MaxProfit(int[] prices)
+        {
+            /*
+            Say you have an array for which the ith element is the price of a given stock on day i.
+            If you were only permitted to complete at most one transaction(i.e., buy one and sell one share of the stock), design an algorithm to find the maximum profit.
+            Note that you cannot sell a stock before you buy one.
+
+            Example 1:
+            Input: [7,1,5,3,6,4]
+            Output: 5
+            Explanation: Buy on day 2(price = 1) and sell on day 5(price = 6), profit = 6 - 1 = 5.
+                       Not 7 - 1 = 6, as selling price needs to be larger than buying price.
+
+            Example 2:
+            Input:[7,6,4,3,1]
+            Output: 0
+            Explanation: In this case, no transaction is done, i.e.max profit = 0.
+            */
+            int maxProfit = 0;
+
+            if (prices.Length == 0) return maxProfit;
+
+            int minBuyingPrice = int.MaxValue;
+            
+            for(int i = 0; i<prices.Length; i++)
+            {
+                if(minBuyingPrice > prices[i])
+                {
+                    minBuyingPrice = prices[i];
+                }
+                else if(prices[i] - minBuyingPrice > maxProfit)
+                {
+                    maxProfit = prices[i] - minBuyingPrice;
+                }
+            }
+
+            return maxProfit;
         }
     }
 }
