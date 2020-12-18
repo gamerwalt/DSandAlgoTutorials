@@ -17,7 +17,7 @@ namespace DataStructuresTutorials
         {
             var nums = new int[] { 1, 2, 3 };
 
-            var result = LeetCodeArrayProblems.EasyPlusOne(nums);
+            var result = LeetCodeArrayProblems.EasyPascalTriangle(5);
         }
     }
 }

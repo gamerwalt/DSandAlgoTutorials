@@ -17,7 +17,18 @@ namespace DataStructuresTutorialsTests.Arrays
             var m = 3;
             var n = 3;
 
-            LeetCodeArrayProblems.MergeSortArray3(nums1, m, nums2, n);
+            LeetCodeArrayProblems.MergeSortArray(nums1, m, nums2, n);
+        }
+
+        [TestMethod]
+        public void when_zero_is_passed_through()
+        {
+            var nums1 = new int[] { 0 };
+            var nums2 = new int[] { 0 };
+            var m = 1;
+            var n = 1;
+
+            LeetCodeArrayProblems.MergeSortArray(nums1, m, nums2, n);
         }
     }
 }

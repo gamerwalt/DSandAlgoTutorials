@@ -16,7 +16,7 @@ namespace DataStructuresTutorialsTests.Arrays
             var nums = new int[] { 1, 3, 5, 6 };
             var target = 5;
 
-            var result = LeetCodeArrayProblems.SearchInsert(nums, target);
+            var result = LeetCodeArrayProblems.SearchInsert2(nums, target);
 
             result.Should().Be(2);
         }
@@ -27,7 +27,7 @@ namespace DataStructuresTutorialsTests.Arrays
             var nums = new int[] { 1, 3, 5, 6 };
             var target = 2;
 
-            var result = LeetCodeArrayProblems.SearchInsert(nums, target);
+            var result = LeetCodeArrayProblems.SearchInsert2(nums, target);
 
             result.Should().Be(1);
         }
@@ -38,7 +38,7 @@ namespace DataStructuresTutorialsTests.Arrays
             var nums = new int[] { 1, 3, 5, 6 };
             var target = 7;
 
-            var result = LeetCodeArrayProblems.SearchInsert(nums, target);
+            var result = LeetCodeArrayProblems.SearchInsert2(nums, target);
 
             result.Should().Be(4);
         }
@@ -49,7 +49,7 @@ namespace DataStructuresTutorialsTests.Arrays
             var nums = new int[] { 1, 3, 5, 6 };
             var target = 0;
 
-            var result = LeetCodeArrayProblems.SearchInsert(nums, target);
+            var result = LeetCodeArrayProblems.SearchInsert2(nums, target);
 
             result.Should().Be(0);
         }
@@ -60,7 +60,7 @@ namespace DataStructuresTutorialsTests.Arrays
             var nums = new int[] {-1, 1, 3, 5, 6 };
             var target = 0;
 
-            var result = LeetCodeArrayProblems.SearchInsert(nums, target);
+            var result = LeetCodeArrayProblems.SearchInsert2(nums, target);
 
             result.Should().Be(1);
         }
@@ -71,7 +71,7 @@ namespace DataStructuresTutorialsTests.Arrays
             var nums = new int[] { 1 };
             var target = 0;
 
-            var result = LeetCodeArrayProblems.SearchInsert(nums, target);
+            var result = LeetCodeArrayProblems.SearchInsert2(nums, target);
 
             result.Should().Be(0);
         }

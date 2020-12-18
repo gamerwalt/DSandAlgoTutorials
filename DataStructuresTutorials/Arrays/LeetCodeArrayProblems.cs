@@ -73,6 +73,27 @@ namespace DataStructuresTutorials.Arrays
             return index;
         }
 
+        public static int SearchInsert2(int[] nums, int target)
+        {
+            if (nums == null) return 0;
+            if (nums.Length == 0) return 0;
+
+            int pivot;
+            int left = 0;
+            int right = nums.Length - 1;
+            while(left <= right)
+            {
+                pivot = left + (right - left) / 2;
+                if (nums[pivot] == target) return pivot;
+                if (target < nums[pivot])
+                    right = pivot - 1;
+                else
+                    left = pivot + 1;
+            }
+
+            return left;
+        }
+
         public static int MaximumSubArray(int[] nums)
         {
             if (nums.Length == 0) return 0;
@@ -144,15 +165,26 @@ namespace DataStructuresTutorials.Arrays
             if (nums1 == null) return;
             if (nums2 == null) return;
 
-            if (nums2.Length == 0) return;
-
-            for(int indexNums1 = m; indexNums1 < nums1.Length; indexNums1++)
+            var firstPointer = m - 1; //last index of the first array that is initialized
+            var secondPointer = n - 1; //last index of the second array
+            var currentPointer = m + n - 1; //last index of the first array
+            while((firstPointer >= 0) && (secondPointer >=0))
             {
-                nums1[indexNums1] = nums2[indexNums1 - m];
+                if(nums1[firstPointer] < nums2[secondPointer])
+                {
+                    nums1[currentPointer] = nums2[secondPointer];
+                    secondPointer--;
+                }
+                else
+                {
+                    nums1[currentPointer] = nums1[firstPointer];
+                    firstPointer--;
+                }
+
+                currentPointer--;
             }
 
-            //then we merge sort here
-            MergeSort(nums1);
+            System.Array.Copy(nums2, 0, nums1, 0, secondPointer + 1);
         }
 
         private static void MergeSort(int[] nums1)
@@ -196,6 +228,38 @@ namespace DataStructuresTutorials.Arrays
 
             while (rightIndex < right.Length)
                 results[resultIndex++] = right[rightIndex++];
+        }
+
+        public static IList<IList<int>> EasyPascalTriangle(int numRows)
+        {
+            IList<IList<int>> listOfRows = new List<IList<int>>();
+            if (numRows == 0) return listOfRows;
+
+            listOfRows.Add(new List<int>() { 1 });
+
+            for(int i = 1; i<numRows; i++)
+            {
+                var previousList = listOfRows[i - 1];
+                var newRow = new List<int>();
+
+                newRow.Add(1);
+
+                for(int j = 1; j<previousList.Count; j++)
+                {
+                    newRow.Add(GetSumOfPreviousIndices(previousList, j));
+                }
+
+                newRow.Add(1);
+
+                listOfRows.Add(newRow);
+            }
+
+            return listOfRows;
+        }
+
+        private static int GetSumOfPreviousIndices(IList<int> previousList, int j)
+        {
+            return previousList[j] + previousList[j - 1];
         }
     }
 }
