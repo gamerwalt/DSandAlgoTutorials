@@ -39,5 +39,26 @@ namespace DataStructuresTutorialsTests.Arrays
 
             result.Should().Be(2);
         }
+
+        ///MAX PROFIT 2
+        [TestMethod]
+        public void should_return_an_output_of_7_for_max_profit_2()
+        {
+            var prices = new int[] { 7, 1, 5, 3, 6, 4 };
+
+            var result = LeetCodeArrayProblems.MaxProfit2(prices);
+
+            result.Should().Be(7);
+        }
+
+        [TestMethod]
+        public void should_return_an_output_of_4_for_max_profit_2()
+        {
+            var prices = new int[] { 1, 2, 3, 4, 5 };
+
+            var result = LeetCodeArrayProblems.MaxProfit2(prices);
+
+            result.Should().Be(4);
+        }
     }
 }
